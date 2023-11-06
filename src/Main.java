@@ -2,35 +2,33 @@ public class Main {
 
     // 1. parenthesesCheck
     public static boolean parenthesesCheck(String a){
+        int outer = 0;
+        int inner = 0;
+        for(int i = 0; i<a.length(); i++) {
 
-        for(int i = 0; i<a.length()-2; i++){
-            char one = a.charAt(i);
-            char two = a.charAt(a.length()-i);
 
-            if(one!=two){
-                return true;
+            if (a.substring(i, i + 1).equals("(")) {
+                outer++;
+            }
+
+            if (a.substring(i, i + 1).equals(")")) {
+                inner++;
             }
         }
-        return false;
+        return inner == outer;
     }
 
     // 2. reverseInteger
     public static String reverseInteger(int integer){
-        int a = 0;
-        for (int i = 0; i<integer; i++) {
-            int lastdigit = 0;
-            if (integer > 9) {
-                lastdigit = integer % 10;
-                a = (a * 10) + lastdigit;
-                integer = (integer - lastdigit) / 10;
+        String a = "";
+        for (int i = 0; integer>0; i++) {
 
-            } else
-                a = a + lastdigit;
-
+                int lastdigit = integer % 10;
+                a += lastdigit;
+                integer/=10;
 
         }
-        String b = Integer.toString(a);
-        return b;
+        return a;
     }
 
     // 3. encryptThis

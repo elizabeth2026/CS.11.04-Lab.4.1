@@ -1,3 +1,4 @@
+import java.util.Scanner;
 public class Main {
 
     // 1. parenthesesCheck
@@ -33,22 +34,31 @@ public class Main {
 
     // 3. encryptThis
     public static String encryptThis(String a) {
-        String answer = "";
-        for(int i = 0; i<a.length(); i++){
+        Scanner scanner = new Scanner(a);
+        String result = null;
+        scanner.useDelimiter(" ");
+        result = "";
+        while (scanner.hasNext()) {
+            String word = scanner.next();
 
-            String letterone = a.substring(0,1);
-            int front = Integer.parseInt(letterone);
-            String middle = a.substring(1,2);
-            String lastletter = a.substring(a.length()-1);
-            String font = Integer.toString(front);
-            answer = font + lastletter + middle;
+
+            //char c = word.charAt(0);
+            //int firstDigit = (int) word.charAt(0);
+            //result = result + String.valueOf(firstDigit);
+            result = result + String.valueOf((int) word.charAt(0)) +  word.substring(word.length() - 1) + word.substring(2, word.length() - 1) + word.substring(1, 2);
+
+
         }
-        return answer;
+        return result;
     }
 
+
+
+
+
     // 4. decipherThis
-        public static boolean decipherThis(String a) {
-            return true;
+        public static String decipherThis(String a) {
+            return a;
         }
 
 }
